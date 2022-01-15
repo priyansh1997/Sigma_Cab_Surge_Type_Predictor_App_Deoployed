@@ -1,0 +1,59 @@
+<<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sigma Cab</title>
+        <style type="text/css">
+            body {
+                background-image: url({{url_for('static',filename='taxi.jpg')}});
+                background-size: cover;
+                
+             }
+            div {
+              margin-bottom: 10px;
+            }
+            label {
+                display: inline-block;
+                width: 200px;
+                color:white;
+              }
+          </style>
+    </head>
+    <body >
+        <h1 style="text-align:center; color:white;">Sigma Cab Surge Type Finder</h1>
+        <center>
+        <form action="/" method="POST">
+            <div>
+            <label for="name">Fill Trip Distance</label>
+            <input  type="number" step="any" name="Trip_Distance"  required="required" />   </br>
+            </div>
+            <div>
+                <label for="name">Type of Cab<br> (in capital between A-E)</label>            
+            <input type="text"  name="Type_of_Cab" required="required" /></br>
+            </div>
+            <div>
+                <label for="name">Customer Since Months<br> (between 0-11)</label>
+            <input type="number" name="Customer_Since_Months" required="required" /></br>
+            </div>
+            <div>
+                <label for="name">Destination Type<br> (in capital between A-N)</label>
+            <input type="text" name="Destination_Type" required="required" /></br>
+        </div>
+            <div>
+                <label for="name">Customer Rating<br> (between 0-5)</label>
+            <input type="number"step="any" name="Customer_Rating" required="required" /></br>
+        </div>
+            <div>
+                <label for="name">Fill a value<br> (between 50-200)</label>
+            <input type="number" name="Var3" required="required" /></br>
+        </div>
+
+          <button type="submit" style="width: 300px; margin-left: 17%;" class="btn btn-primary btn-block btn-large">Submit</button>
+        </form>
+    </center>
+
+        {% if prediction %}
+            <h1 style="text-align:center; color:white; font-size: 20px; " >Surge Pricing Type is: &nbsp{{ prediction }}</h1>
+        {% endif %}
+
+    </body>
+</html>
